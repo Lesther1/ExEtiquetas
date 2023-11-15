@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generar imagen y enviar a servidor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+      margin: 10px auto;
+    }
+
+    label {
+      margin-top: 10px;
+    }
+
+    select, label {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: calc(100% - 20px); /* Ajusta el ancho del select para acomodar el label */
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <canvas id="EtiquetaResultado"></canvas>
+    <div style="display: flex; width: 100%;">
+      <label style="flex: 1;">Tipo de Etiqueta</label>
+      <select id="DropDownList1" style="flex: 2;">
+        <option value="0">Seleccione</option>
+        <option value="1">ET0213-39</option>
+        <option value="2">ET0266-3A</option>
+      </select>
+    </div>
+    <input type="text" id="NombreProducto" placeholder="Nombre del Producto">
+    <input type="text" id="PrecioProducto" placeholder="Precio del Producto">
+    <input type="text" id="CodigoBarras" placeholder="Código de Barras">
+    <button id="generar" onclick="generarImagen()">Generar</button>
+    <input type="text" id="StoreCode" placeholder="Código de Tienda">
+    <input type="text" id="TagId" placeholder="Código de Etiqueta">
+    <button id="Enviar" onclick="enviarImagenAlServidor()">Enviar</button>
+  </div>
+  <script src="script.js"></script>
+  <script src="JsBarcode.all.min.js"></script>
+</body>
+</html>
